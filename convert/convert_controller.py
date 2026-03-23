@@ -8,7 +8,6 @@ temps = {'c2f': 'fahrenheit', 'f2c': 'celius'}
 @convert_bp.route('', methods=['GET'])
 def convert():
 
-
     try:
         value = float(request.args.get('value', ''))
     except Exception as e:
