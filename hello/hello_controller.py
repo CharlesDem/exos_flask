@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 
 hello_bp = Blueprint('hello', __name__, url_prefix='/hello')
 
-know_languages = {
+KNOWN_LANGUAGES = {
     'french': 'Salut',
     'english': 'Hello'
 }
@@ -10,13 +10,13 @@ know_languages = {
 @hello_bp.route('<language>', methods=['GET'])
 def say_hello_in(language: str):
     language = language.lower()
-    if not language or language not in know_languages.keys():
+    if not language or language not in KNOWN_LANGUAGES.keys():
         return jsonify({
             "success": False,
             "error": f"Language param not ok"
         }), 400
 
     return jsonify({
-        "message": know_languages.get(language),
+        "message": KNOWN_LANGUAGES.get(language),
         "language": language
     }), 200
