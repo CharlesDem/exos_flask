@@ -25,3 +25,20 @@ class Commande(BaseModel):
                 raise ValueError("is not good number")
 
         return self
+    
+
+class ItemResponse(BaseModel): #pour le T, overkill en vrai
+    product_id: int
+    quantity: int
+    price: float
+
+    model_config = {"from_attributes": True}
+
+
+class OrderResponse(BaseModel):
+    order_id: str
+    customer_email: str
+    total: float
+    items: List[ItemResponse]
+
+    model_config = {"from_attributes": True}
