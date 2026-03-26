@@ -27,7 +27,7 @@ class Commande(BaseModel):
         return self
     
 
-class ItemResponse(BaseModel): #pour le T, overkill en vrai
+class ItemResponse(BaseModel): #pour utiliser le T, overkill en vrai
     product_id: int
     quantity: int
     price: float
